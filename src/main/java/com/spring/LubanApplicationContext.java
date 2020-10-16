@@ -47,8 +47,8 @@ public class LubanApplicationContext {
                 Component component = (Component) clazz.getAnnotation(Component.class);
                 String beanName=component.value();
 
-                //判断一个类是否实现了某个接口
                 //BeanPostProcessor对spring进行扩展
+                //判断一个类(.calss，class文件，而不是对象Object)是否实现了某个接口：isAssignableFrom
                 if(BeanPostProcessor.class.isAssignableFrom(clazz)){
                     try {
                         BeanPostProcessor instance = (BeanPostProcessor) clazz.getDeclaredConstructor().newInstance();
